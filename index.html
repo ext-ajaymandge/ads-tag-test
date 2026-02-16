@@ -21,13 +21,13 @@
         'ads_data_redaction': true // Strips PII from URLs if any scripts leak
         });
 
-        gtag('config', 'AW-123456789', {
+        /*gtag('config', 'AW-123456789', {
         'send_page_view': false, // STOP the automatic "sniffing" hit
         'allow_enhanced_conversions': false, // STOP the browser scraper (handled by API)
         'allow_ad_personalization_signals': false, // KILL the linker/audience calls
         'page_location': maskedURL,
         'linker': { 'domains': [] } // Prevent URL decoration/leaks
-        });
+        }); */
       // This line below is what fires the 'pageview' automatically on load
 
      // 5. INJECT THE LIBRARY
@@ -38,9 +38,7 @@
         //gtag('config', 'AW-123456789');
 
         gtag('event', 'page_view', {
-        'send_to': 'AW-123456789',
-        'page_location': maskedURL,
-        'page_title': maskedTitle
+        'send_to': 'AW-123456789'
         });
         
     </script>
@@ -111,6 +109,7 @@
 </body>
 
 </html>
+
 
 
 
