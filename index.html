@@ -4,14 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Ads Tag Test Page updated</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789"></script>
+    
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      var maskedURL = window.location.origin;
+      var maskedTitle = 'custom';
+
+      gtag('set', {
+        'page_location': maskedURL,
+        'page_title': maskedTitle,
+        'referrer': 'www.lahitapiola.fi/custom_refrrer/',
+        'restricted_data_processing': true, // Essential for privacy compliance
+        'ads_data_redaction': true // Strips PII from URLs if any scripts leak
+        });
+
+        gtag('config', 'AW-123456789', {
+        'send_page_view': false, // STOP the automatic "sniffing" hit
+        'allow_enhanced_conversions': false, // STOP the browser scraper (handled by API)
+        'allow_ad_personalization_signals': false, // KILL the linker/audience calls
+        'page_location': maskedURL,
+        'linker': { 'domains': [] } // Prevent URL decoration/leaks
+        });
       // This line below is what fires the 'pageview' automatically on load
-      gtag('config', 'AW-123456789');
+
+     // 5. INJECT THE LIBRARY
+        var script = document.createElement('script');
+        script.src = "https://www.googletagmanager.com/gtag/js?id=AW-123456789";
+        script.async = true;
+        document.head.appendChild(script);
+        //gtag('config', 'AW-123456789');
+
+        gtag('event', 'page_view', {
+        'send_to': 'AW-123456789',
+        'page_location': maskedURL,
+        'page_title': maskedTitle
+        });
+        
     </script>
     <style>
         body {
@@ -80,5 +111,6 @@
 </body>
 
 </html>
+
 
 
