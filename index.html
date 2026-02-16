@@ -38,7 +38,7 @@
         script.async = true;
         document.head.appendChild(script);
         //gtag('config', 'AW-123456789');
-
+        console.log('masked url', maskedURL);
         gtag('event', 'page_view', {
         'send_to': 'AW-123456789',
             'page_location': maskedURL,
@@ -113,6 +113,7 @@
 </body>
 
 </html>
+
 
 
 
