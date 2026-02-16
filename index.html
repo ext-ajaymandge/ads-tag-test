@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Ads Tag Test Page</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      // This line below is what fires the 'pageview' automatically on load
+      gtag('config', 'AW-123456789');
+    </script>
     <style>
         body {
             font-family: sans-serif;
@@ -72,3 +80,4 @@
 </body>
 
 </html>
+
